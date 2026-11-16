@@ -2,9 +2,22 @@
 
 A central skill library for William's AI agents and devices: **295 unique skills**, with copies for shared agents, Claude, and Kimi.
 
-## One-step library import
+## Finish the web-only setup
 
-The importer is ready. Upload `all-skills-20261116.zip` to the repository root using **Add file → Upload files** and commit the upload.
+Two uploads remain because the connected GitHub session cannot write workflow files or binary archives directly.
+
+### 1. Activate the automatic importer
+
+1. Open [`import-skills.yml`](import-skills.yml).
+2. Click the **pencil / Edit** icon.
+3. In the filename box, replace `import-skills.yml` with `.github/workflows/import-skills.yml`.
+4. Click **Commit changes**, then commit to `main`. This moves the file and activates the workflow.
+
+### 2. Upload the skills archive
+
+1. Return to the repository root and choose **Add file → Upload files**.
+2. Drag in `all-skills-20261116.zip` without renaming it.
+3. Click **Commit changes**.
 
 The **Import skill archive** GitHub Action will then automatically:
 
