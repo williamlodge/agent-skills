@@ -1,35 +1,32 @@
 # Agent Skills
 
-A central skill library for William's AI agents and devices: **295 unique skills**, with copies for shared agents, Claude, and Kimi.
+A public, searchable skill library with visible descriptions, source links, install commands, and a repeatable ZIP importer.
 
-## Finish the web-only setup
+## Finish the initial import
 
-Two uploads remain because the connected GitHub session cannot write workflow files or binary archives directly.
+The importer and catalog generator are ready. The skill archive itself is uploaded through GitHub's web interface so its binary files remain intact.
 
-### 1. Activate the automatic importer
+1. Open [`inbox/`](inbox/).
+2. Choose **Add file → Upload files**.
+3. Upload `skills.zip` and commit it to `main`.
+4. Open **Actions** and wait for **Import skill archive** to show a green checkmark.
 
-1. Open [`import-skills.yml`](import-skills.yml).
-2. Click the **pencil / Edit** icon.
-3. In the filename box, replace `import-skills.yml` with `.github/workflows/import-skills.yml`.
-4. Click **Commit changes**, then commit to `main`. This moves the file and activates the workflow.
+The action safely merges the archive into `all-skills/shared-agents/`, builds the README catalog, `manifest.json`, and `docs/index.html`, commits those files, and removes the ZIP. It does not execute archived scripts.
 
-### 2. Upload the skills archive
+## Enable the public catalog
 
-1. Return to the repository root and choose **Add file → Upload files**.
-2. Drag in `all-skills-20261116.zip` without renaming it.
-3. Click **Commit changes**.
+After the import succeeds:
 
-The **Import skill archive** GitHub Action will then automatically:
+1. Open **Settings → Pages**.
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Select **main** and **/docs**, then click **Save**.
 
-1. Safely unpack all 4,891 skill files without executing archived code.
-2. Replace this page with a searchable catalog of all 295 skill names and descriptions.
-3. Publish `manifest.json` with raw download URLs for AI agents.
-4. Commit the complete library and remove the uploaded ZIP.
+GitHub will publish the catalog at:
 
-After that action finishes, browse the catalog on this page or clone the repository:
+**https://williamlodge.github.io/agent-skills/**
 
-```bash
-git clone https://github.com/williamlodge/agent-skills.git
-```
+## Add more skills later
 
-See [`README.template.md`](README.template.md) for the catalog and installation layout that will be published.
+Upload another ZIP to [`inbox/`](inbox/). New skills are merged without deleting unrelated existing skills. The catalog and manifest rebuild automatically after every import.
+
+See [`README.template.md`](README.template.md) for the generated catalog layout and [`inbox/README.md`](inbox/README.md) for accepted ZIP structures.
