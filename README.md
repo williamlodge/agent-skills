@@ -4,7 +4,15 @@ A public, searchable skill library with visible descriptions, source links, inst
 
 ## Finish the initial import
 
-The importer and catalog generator are ready. The skill archive itself is uploaded through GitHub's web interface so its binary files remain intact.
+The importer and catalog generator are ready. Two web-only steps remain because the connected GitHub session cannot write workflow files or binary archives.
+
+### 1. Activate the importer
+
+1. Open [`import-skills.yml`](import-skills.yml) and click the **pencil / Edit** icon.
+2. In the filename box, replace `import-skills.yml` with `.github/workflows/import-skills.yml`.
+3. Click **Commit changes**, then commit to `main`. This moves the file and activates the workflow.
+
+### 2. Upload this skill archive
 
 1. Open [`inbox/`](inbox/).
 2. Choose **Add file → Upload files**.
