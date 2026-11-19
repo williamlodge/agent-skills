@@ -1,14 +1,26 @@
 # Agent Skills
 
-A central, browsable skill library for William's AI agents and devices. Use the catalog below to find a skill, open its folder, and read its `SKILL.md` plus any supporting files.
+A public, searchable skill library for William's AI agents, devices, and anyone else who wants to browse or reuse them.
+
+**[Open the visual catalog](https://williamlodge.github.io/agent-skills/)** · **[Machine-readable manifest](manifest.json)**
 
 {{STATS}}
 
 ## Find a skill
 
-Use **Ctrl+F** (desktop) or your browser's **Find in page** (phone) to search the catalog by name, task, or platform. Select a skill name to open its folder. `SKILL.md` is the entry point; keep that folder's scripts, references, and assets with it.
+The visual catalog provides instant search, platform filters, visible descriptions, source-folder links, and copy-ready install commands. On GitHub, use **Ctrl+F** (desktop) or your browser's **Find in page** (phone) to search the table below.
 
-For a machine-readable version, use [`manifest.json`](manifest.json). It contains every description, platform copy, folder path, and raw `SKILL.md` URL.
+Each `SKILL.md` is the entry point. Keep its complete folder together so scripts, references, examples, and assets remain available.
+
+## Import new skills
+
+1. Create a ZIP containing a `skills/` folder, or an `all-skills/` folder with `shared-agents/`, `claude/`, and `kimi/` subfolders.
+2. Open [`inbox/`](inbox/) and choose **Add file → Upload files**.
+3. Upload the ZIP and commit it to `main`.
+
+The **Import skill archive** action safely merges every ZIP in the inbox, rebuilds the visual catalog, this README, and `manifest.json`, commits the result, and removes the uploaded ZIP. Existing skills are preserved; matching folders are refreshed. No archived script is executed during import.
+
+To rebuild without adding an archive, open **Actions → Import skill archive → Run workflow**.
 
 ## Get the library on any device
 
@@ -68,13 +80,13 @@ all-skills/
 ├── shared-agents/   # Agent-neutral copies; default choice
 ├── claude/          # Claude-specific copies
 └── kimi/            # Kimi-specific copies
+docs/
+├── catalog.template.html  # Edit the public page design here
+└── index.html             # Generated; do not edit directly
+inbox/                     # Upload new ZIP archives here
 ```
 
 The same skill can appear in more than one platform folder. The catalog lists each skill once and shows every available platform. `manifest.json` retains all copies, including nested collections.
-
-## Add or refresh skills
-
-Upload a new archive named `all-skills-20261116.zip` to the repository root. The **Import skill archive** GitHub Action safely unpacks it, rebuilds this catalog and `manifest.json`, commits the result, and removes the ZIP. No archived script is executed during import.
 
 ## Notes
 
